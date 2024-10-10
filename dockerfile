@@ -54,7 +54,7 @@ RUN apt-get update && apt-get install -y nginx && apt-get clean && rm -rf /var/l
 RUN chmod +x /home/anegin97/Bioinformatics/appforclient/PSeqPGSSE.sh
 RUN chmod +x /home/anegin97/Bioinformatics/appforclient/PSeqPGSPE.sh
 
-# Expose port 5000 for the Flask or similar web application
+# Expose port 9999 for the Flask or similar web application
 EXPOSE 9999
 
 # Expose port 80 for Nginx (if used)
