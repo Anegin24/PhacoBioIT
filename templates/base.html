@@ -1,0 +1,85 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}PhacoCNVanalysis{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+            outline: none;
+            color: #fff;
+        }
+        :root {
+            --prime: #00ff34;
+        }
+        body {
+            background-color: #222;
+        }
+        .navbar {
+            width: 100%;
+            display: flex;
+            position: fixed;
+            padding: 10px 110px;
+            justify-content: space-between;
+            z-index: 1111;
+            transition: 0.5s ease;
+        }
+        .logo {
+            font-size: 2.8em;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            z-index: 1111;
+        }
+        .logo b {
+            color: #fff;
+        }
+        ol {
+            display: flex;
+            margin: 20px;
+        }
+        ol li {
+            list-style: none;
+            margin-right: 20px;
+        }
+        ol li a {
+            font-size: 20px;
+            font-weight: 500;
+            text-decoration: none;
+            text-transform: capitalize;
+        }
+        /* Color of text navbar when moving the mouse over */
+        ol li:hover a {
+            color: #00a0be;
+        }
+    </style>
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <div class="navbar">
+        <div class="box">
+            <img src="https://phacogen.com/pit-media/logo/logo-pit.png" alt="">
+        </div>
+        <ol>
+            <li><a href="#home">home</a></li>
+            <li><a href="#analysis">analysis</a></li>
+            <li><a href="{{ url_for('visualization') }}">visualization</a></li>
+            <li><a href="#info">info</a></li>
+        </ol>
+    </div>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

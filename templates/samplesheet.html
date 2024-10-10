@@ -1,0 +1,220 @@
+<!-- visualization.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PseqReporter</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="https://raw.githubusercontent.com/Anegin24/Microbiome-analysis/main/logopseq.jpg" type="image/jpeg">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+            outline: none;
+            color: #fff;
+        }
+        :root {
+            --prime: #00ff34;
+        }
+        body {
+            background-color: #222;
+        }
+        .navbar {
+            width: 100%;
+            display: flex;
+            position: fixed;
+            padding: 10px 110px;
+            justify-content: space-between;
+            z-index: 1111;
+            transition: 0.5s ease;
+        }
+        .logo {
+            font-size: 2.8em;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            z-index: 1111;
+        }
+        .logo b {
+            color: #fff;
+        }
+        ol {
+            display: flex;
+            margin: 20px;
+        }
+        ol li {
+            list-style: none;
+            margin-right: 20px;
+        }
+        ol li a {
+            font-size: 20px;
+            font-weight: 500;
+            text-decoration: none;
+            text-transform: capitalize;
+            position: relative;
+        }
+        ol li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: #00a0be;
+            transition: width 0.3s ease, right 0.3s ease;
+        }
+        ol li a:hover::after {
+            width: 100%;
+            right: 0;
+        }
+        /* Color of text navbar when moving the mouse over */
+        ol li:hover a {
+            color: #00a0be;
+        }
+        .dropdown {
+        float: left;
+        overflow: hidden;
+        margin-right: 20px; /* Add space between dropdown and the next item */
+        }
+
+        .dropdown .dropbtn {
+            font-size: 20px;
+            font-weight: 500;
+            text-decoration: none;
+            text-transform: capitalize;
+            border: none;
+            background: none;
+            padding: 0;
+            color: #fff;
+            position: relative; /* Required for the ::after pseudo-element */
+        }
+        .dropdown .dropbtn::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: #00a0be;
+            transition: width 0.3s ease, right 0.3s ease;
+        }
+
+        .dropdown .dropbtn:hover::after {
+            width: 100%;
+            right: 0;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #222; /* Same as the navbar background */
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #fff; /* Text color for dropdown items */
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            background: #333; /* Dropdown background color */
+        }
+
+        .dropdown-content a:hover {
+            background-color: #00a0be; /* Hover color for dropdown items */
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            color: #00a0be; /* Hover color for dropdown button */
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 98vh;
+        }
+        .iframe-container {
+            margin-top: 60px;
+            width: 100%;
+            height: 88vh;
+            border: none;
+        }
+        .copyright{
+            text-transform: capitalize;
+            height: 5px;
+            width: 100%;
+            line-height: 5px;
+            background: #222;
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 0;
+        }
+        .copyright a{
+            color:#00a0be;
+            text-decoration: none;
+            margin-bottom: 0;
+            margin: 0 2px;
+            font-weight: lighter;
+        }       
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="box">
+            <img src="https://phacogen.com/pit-media/logo/logo-pit.png" alt="">
+        </div>
+        <ol>
+            <li><a href="{{ url_for('index') }}">home</a></li>
+            <li><a href="{{ url_for('index') }}#analysis">analysis</a></li>
+            <div class="dropdown">
+                <button class="dropbtn">Tools
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('samplesheet') }}">Sample Sheet Generating</a>
+                    <a href="{{ url_for('visualization') }}">Visualization</a>
+                </div>
+              </div>
+            <li><a href="{{ url_for('database') }}">database</a></li>
+            <li><a href="#info">info</a></li>
+        </ol>
+    </div>
+    <div class="container">
+        <iframe src="http://10.10.4.197:2497" class="iframe-container"></iframe>
+    </div>
+    <section class="copyright">
+        copyright <a href="#">Phacogen JSC</a> 2024 | All Rights Reserved
+    </section> 
+    <script>
+        document.querySelector('.dropbtn').addEventListener('click', function() {
+            this.parentElement.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.matches('.dropbtn')) {
+                var dropdowns = document.querySelectorAll('.dropdown');
+                dropdowns.forEach(function(dropdown) {
+                    dropdown.classList.remove('active');
+                });
+            }
+        });
+    </script>  
+</body>
+</html>
