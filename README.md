@@ -38,3 +38,4 @@ chmod 777 /directory/DATA
 sudo docker run -d -p 9999:9999 -p 80:80 --name PhacoBioIT  -v /directory/DATA:/media/anegin97/DATA/DATA PhacoBioIT
 ```
 ## Usage
+updating
