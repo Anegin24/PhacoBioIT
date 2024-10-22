@@ -3,6 +3,7 @@
 PhacoBioIT was written by molecular biologist/bioinformatics expert anegin97. PhacoBioIT was created with the hope that other colleagues who are not specialized in using applications that require command line knowledge can perform the PGT-A data analysis process automatically with just the click of a button. The software is deployed as a web application, integrating data visualization tools along with a database to manage sample files.
 
 PhacoBioIT mainly built with python and R, it includes the followings dependencies:
+* Flask
 * bwa
 * samtools
 * zip
