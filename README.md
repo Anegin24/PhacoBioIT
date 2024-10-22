@@ -14,4 +14,11 @@ PhacoBioIT mainly built with python and R, it includes the followings dependenci
 * shiny
 * DT
 * RSQLite
-* 
+* ggtext
+* dplyr
+* plotly
+* smoother
+* magick
+* patchwork
+* purrr
+* here
