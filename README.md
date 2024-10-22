@@ -8,4 +8,10 @@ PhacoBioIT mainly built with python and R, it includes the followings dependenci
 * zip
 * unzip
 * cnvkit
+* ggplot2
+* tidyverse
+* dplyr
+* shiny
+* DT
+* RSQLite
 * 
