@@ -22,3 +22,18 @@ PhacoBioIT mainly built with python and R, it includes the followings dependenci
 * patchwork
 * purrr
 * here
+## Installation
+### Docker
+The pipeline can be installed via Docker as well.
+```bash
+git clone https://github.com/Anegin24/PhacoBioIT.git
+cd PhacoBioIT
+sudo docker build -t PhacoBioIT .
+```
+
+The data input directory from the container is /media/anegin97/DATA/DATA, user can run PhacoBioIT commands by mounting the host database (where the git cloned into, e.g. ~/workspace/amromics) into this destination (by using -v).
+```bash
+chmod 777 /directory/DATA
+sudo docker run -d -p 9999:9999 -p 80:80 --name PhacoBioIT  -v /media/anegin97/DATA/DATA:/media/anegin97/DATA/DATA PhacoBioIT
+```
+## Usage
