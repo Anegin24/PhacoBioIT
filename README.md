@@ -50,6 +50,7 @@ In docker-compose.yml, you will see:
 ```bash "directory/DATA:/media/anegin97/DATA/DATA" ``` => Change "directory" to path contain DATA hard disk where store data
       
 ```bash "directory/PhacoBioIT/CNVdat:/home/anegin97/Bioinformatics/appforclient/CNVdat" ``` => Change "directory" to path contain DATA hard disk where store Rsqlite database
+
 🚀🚀🚀🚀🚀
 ```bash
 sudo docker compose up -d
