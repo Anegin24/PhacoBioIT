@@ -47,8 +47,6 @@ sudo docker build -t phacobioit -f dockerfile .
 In docker-compose.yml, you will see:
       - "directory/DATA:/media/anegin97/DATA/DATA" => Change "directory" to path contain DATA hard disk where store data
       - "directory/PhacoBioIT/CNVdat:/home/anegin97/Bioinformatics/appforclient/CNVdat" => Change "directory" to path contain DATA hard disk where store Rsqlite database
-      
-**Run Docker Compose: **
 ```bash
 sudo docker compose up -d
 ```
