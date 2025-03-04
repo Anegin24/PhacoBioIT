@@ -26,10 +26,15 @@ PhacoBioIT mainly built with python and R, it includes the followings dependenci
 ## Installation
 ### Docker
 The pipeline can be installed via Docker as well.
+
+Prepare database and index,
+
+Download from link:
 ```bash
 git clone https://github.com/Anegin24/PhacoBioIT.git
 cd PhacoBioIT
-sudo docker build -t PhacoBioIT .
+sudo docker build -t cnvviso -f CNVvisodocker .
+sudo docker build -t phacobioit -f dockerfile .
 ```
 
 The data input directory from the container is /media/anegin97/DATA/DATA, user can run PhacoBioIT commands by mounting the host database (where the data into, e.g. /directory/DATA) into this destination (by using -v).
