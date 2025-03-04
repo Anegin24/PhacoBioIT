@@ -27,20 +27,27 @@ PhacoBioIT mainly built with python and R, it includes the followings dependenci
 ### Docker
 The pipeline can be installed via Docker as well.
 
-Prepare database and index,
 
-Download from link:
+Clone the repository and generate docker image:
 ```bash
 git clone https://github.com/Anegin24/PhacoBioIT.git
 cd PhacoBioIT
+```
+Prepare database and index:
+Download from link: ... 
+```bash
+unzip Ref
+```
+Setup docker image:
+```bash
 sudo docker build -t cnvviso -f CNVvisodocker .
 sudo docker build -t phacobioit -f dockerfile .
 ```
-
-The data input directory from the container is /media/anegin97/DATA/DATA, user can run PhacoBioIT commands by mounting the host database (where the data into, e.g. /directory/DATA) into this destination (by using -v).
+Run docker compose:
+In docker-compose.yml, you will see:
+      - "directory/DATA:/media/anegin97/DATA/DATA" => Change "directory" to path contain DATA hard disk where store data
+      - "directory/PhacoBioIT/CNVdat:/home/anegin97/Bioinformatics/appforclient/CNVdat" => Change "directory" to path contain DATA hard disk where store Rsqlite database
+Run Docker Compose: 
 ```bash
-sudo chmod 777 -R /directory/DATA
-sudo docker run -d -p 9999:9999 -p 80:80 --name PhacoBioIT  -v /directory/DATA:/media/anegin97/DATA/DATA PhacoBioIT
+sudo docker compose up -d
 ```
-## Usage
-updating
