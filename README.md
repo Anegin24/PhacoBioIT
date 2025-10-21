@@ -57,6 +57,6 @@ In docker-compose.yml, you will see:
 sudo docker compose up -d
 ```
 
-**Please cite**
+**Citation**
 
 _Huu An, N., Hong Nhung, T. T., Huong, B. B., Quang Tien, V., Dung, P. T., Ngan, N. T., … Hoi, L. T. (2025). PhacoBioIT: A scalable workflow for analysing and visualising ultra-low coverage whole-genome sequencing data in preimplantation genetic testing. Computer Methods in Biomechanics and Biomedical Engineering: Imaging & Visualization, 13(1). https://doi.org/10.1080/21681163.2025.2566246_
