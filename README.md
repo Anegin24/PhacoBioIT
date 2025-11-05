@@ -34,7 +34,7 @@ git clone https://github.com/Anegin24/PhacoBioIT.git
 cd PhacoBioIT
 ```
 **Prepare database and index:**
-Download from link: [... ](https://zenodo.org/records/17526146)
+Download from link: [Ref](https://zenodo.org/records/17526146)
 ```bash
 unzip Ref
 ```
